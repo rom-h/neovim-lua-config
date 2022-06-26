@@ -1,25 +1,5 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
@@ -109,7 +89,40 @@ nvim_tree.setup {
       },
     },
   },
-
+  renderer = {
+    highlight_git = true,
+    icons = {
+      webdev_colors = true,
+      git_placement = "before",
+      symlink_arrow = "",
+      show = {
+        file = true,
+        folder = true,
+        folder_arrow = true,
+        git = true
+      },
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          deleted = "",
+          untracked = "U",
+          ignored = "◌",
+        },
+        folder = {
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = ""
+        }
+      }
+    }
+  }
 --  unknown options as of 22.05
 --
 --  update_to_buf_dir = {
@@ -121,3 +134,4 @@ nvim_tree.setup {
 --  root_folder_modifier = ":t",
 
 }
+
